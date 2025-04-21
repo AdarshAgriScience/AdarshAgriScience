@@ -1,0 +1,717 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh Beej Bhandar - Transforming Nepalese Agriculture</title>
+    <style>
+        :root {
+            --primary: #1a6587;
+            --secondary: #36a33d;
+            --accent: #f18529;
+            --light: #f5f5f0;
+            --dark: #333333;
+            --spacing: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+            .logo img {
+                width: 80px;
+                height: auto;
+            }
+
+            .logo h1 {
+                color: var(--primary);
+                font-size: 1.8rem;
+            }
+
+                .logo h1 span {
+                    background: linear-gradient(45deg, var(--secondary), var(--accent));
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    color: transparent;
+                }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+            nav a:hover {
+                color: var(--accent);
+            }
+
+        .hero {
+            background: linear-gradient(rgba(26, 101, 135, 0.85), rgba(54, 163, 61, 0.85)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+            .hero h2 {
+                font-size: 3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                max-width: 700px;
+                margin: 0 auto;
+                margin-bottom: 2rem;
+            }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+
+        section {
+            padding: var(--spacing) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+            .section-title::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background: linear-gradient(to right, var(--secondary), var(--accent));
+            }
+
+        .about {
+            background-color: white;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card h3 {
+                color: var(--primary);
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+        .card-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .services {
+            background-color: #f9f9f7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+            .service-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+            .service-content h3 {
+                color: var(--primary);
+                margin-bottom: 0.5rem;
+            }
+
+        .partners {
+            background-color: white;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .partner-logo {
+            background-color: white;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+            .partner-logo:hover {
+                transform: scale(1.05);
+            }
+
+            .partner-logo img {
+                max-width: 100%;
+                max-height: 70px;
+            }
+
+        .trials {
+            background-color: #f9f9f7;
+        }
+
+        .trials-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+            .trials-table th, .trials-table td {
+                padding: 1rem;
+                text-align: left;
+                border-bottom: 1px solid #eee;
+            }
+
+            .trials-table thead {
+                background-color: var(--primary);
+                color: white;
+            }
+
+            .trials-table tbody tr:hover {
+                background-color: #f5f5f5;
+            }
+
+        .values {
+            background-color: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+            .value-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .leadership {
+            background-color: #f9f9f7;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+            .team-member:hover {
+                transform: translateY(-5px);
+            }
+
+        .member-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+            .member-info h3 {
+                color: var(--primary);
+                margin-bottom: 0.5rem;
+            }
+
+            .member-info p {
+                color: var(--accent);
+                font-weight: 600;
+            }
+
+        .vision {
+            background: linear-gradient(rgba(26, 101, 135, 0.9), rgba(54, 163, 61, 0.9)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .vision-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem;
+        }
+
+            .vision-quote::before, .vision-quote::after {
+                content: """; font-size: 4rem;
+                line-height: 0;
+                position: absolute;
+            }
+
+            .vision-quote::before {
+                top: 1rem;
+                left: 0;
+            }
+
+            .vision-quote::after {
+                content: """; bottom: 0;
+                right: 0;
+            }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+            .footer-logo span {
+                color: var(--accent);
+            }
+
+        .footer-links h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+            .footer-links a:hover {
+                color: var(--accent);
+            }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .header-content {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="image/agrilogo.jpeg" alt="Adarsh Beej Bhandar Logo">
+                    <h1>Adarsh <span>AgriScience</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#legacy">Legacy</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#trials">Trials</a></li>
+                        <li><a href="#values">Values</a></li>
+                        <li><a href="#leadership">Leadership</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h2>Transforming Nepalese Agriculture</h2>
+            <p>Providing innovative, quality, and farmer-first solutions to empower Nepal's agricultural communities</p>
+            <a href="#contact" class="btn">Connect With Us</a>
+        </div>
+    </div>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">🌾 About Adarsh Beej Bhandar</h2>
+            <div class="card">
+                <p>Adarsh Beej Bhandar is a pioneering agro-input company based in <strong>Birgunj, Nepal</strong>, committed to transforming Nepalese agriculture through innovation, quality, and farmer-first solutions. As a proud member of the <strong>KD Group</strong>, we serve as a key link between global agri-technology and Nepal's farming communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="legacy" class="services">
+        <div class="container">
+            <h2 class="section-title">📚 Legacy of Trust</h2>
+            <p class="section-intro" style="text-align: center; margin-bottom: 2rem;">Established with the vision to empower farmers, Adarsh Beej Bhandar has built a legacy of trust by delivering:</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('image/seeds.jpg');"></div>
+                    <div class="service-content">
+                        <h3>High-quality Seeds</h3>
+                        <p>Premium agricultural seeds guaranteed for optimal germination and yield potential.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('image/agro.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Reliable Agrochemicals</h3>
+                        <p>Effective pesticides, herbicides, and fungicides for comprehensive crop protection.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('image/fertilizer.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Fertilizers & Micronutrients</h3>
+                        <p>Complete nutrition solutions to maximize crop health and productivity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="partners">
+        <div class="container">
+            <h2 class="section-title">🌍 Global Partnerships</h2>
+            <p class="section-intro" style="text-align: center; margin-bottom: 2rem;">We are the official importer and distributor for globally recognized brands:</p>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="image/Adama.jpg" alt="Adama India">
+                </div>
+                <div class="partner-logo">
+                    <img src="image/Rotam.jpg" alt="Rotam Crop Protection (Albaugh)">
+                </div>
+                <div class="partner-logo">
+                    <img src="image/indigo.jpg" alt="Grow Indigo">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/180/60" alt="SML">
+                </div>
+            </div>
+            <div class="card" style="margin-top: 2rem;">
+                <p>These partnerships ensure that Nepalese farmers receive world-class agricultural inputs tailored to local needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="trials" class="trials">
+        <div class="container">
+            <h2 class="section-title">🧪 Innovation Through Trials</h2>
+            <p class="section-intro" style="text-align: center; margin-bottom: 2rem;">At Adarsh Beej Bhandar, we believe in field-tested performance. Our latest on-ground product trials include:</p>
+            <table class="trials-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Crop/Farming Use</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Grow Maxx</strong></td>
+                        <td>Banana farming</td>
+                        <td>Nijgad</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gullak Zinc</strong></td>
+                        <td>Tobacco farming (Poland import)</td>
+                        <td>Various</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oorjit Liquid</strong></td>
+                        <td>Okra</td>
+                        <td>Trial Zones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GrowRrhiza Tech</strong></td>
+                        <td>Tomato</td>
+                        <td>Trial Zones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oorit FVC</strong></td>
+                        <td>Chili, maize, onion, paddy, flowers</td>
+                        <td>Across Nepal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grow Hume</strong></td>
+                        <td>Wheat and cash crops</td>
+                        <td>Multiple Regions</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="card" style="margin-top: 2rem;">
+                <h3>These trials aim to enhance:</h3>
+                <ul style="list-style-position: inside; margin-top: 0.5rem;">
+                    <li>Crop yield & health</li>
+                    <li>Soil sustainability</li>
+                    <li>Farmer profitability</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="values" class="values">
+        <div class="container">
+            <h2 class="section-title">👨‍🌾 Farmer-Centric Values</h2>
+            <p class="section-intro" style="text-align: center; margin-bottom: 2rem;">We provide more than products — we deliver solutions:</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🔍</div>
+                    <h3>Technical Support</h3>
+                    <p>Expert guidance and education on best agricultural practices and product application.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Field Demonstrations</h3>
+                    <p>Hands-on demonstrations and crop guidance to showcase product effectiveness.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📊</div>
+                    <h3>Personalized Recommendations</h3>
+                    <p>Customized solutions based on specific soil, climate, and crop requirements.</p>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 2rem;">
+                <p>Our goal is to walk hand-in-hand with farmers throughout their cultivation journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="leadership" class="leadership">
+        <div class="container">
+            <h2 class="section-title">💼 Leadership</h2>
+            <p class="section-intro" style="text-align: center; margin-bottom: 2rem;">Guided by an experienced and visionary leadership team:</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('image/imgadarsh.jpeg');"></div>
+                    <div class="member-info">
+                        <h3>Adarsh Kumar Chaurasiya</h3>
+                        <p>Overseas Managing Director</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('/api/placeholder/300/300');"></div>
+                    <div class="member-info">
+                        <h3>Prince Kumar Chaurasiya</h3>
+                        <p>Domestic Managing Director</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('image/imgpramod.jpeg"></div>
+                    <div class="member-info">
+                        <h3>Pramod Kumar Chaurasiya</h3>
+                        <p>Chief Executive Officer</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('/api/placeholder/300/300');"></div>
+                    <div class="member-info">
+                        <h3>Kalpana Devi Chaurasiya</h3>
+                        <p>Chairperson</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 2rem;">
+                <p>We blend global insight with local dedication to drive growth in agriculture.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">✨ Vision Statement</h2>
+            <div class="vision-quote">
+                "To empower Nepal's farmers with global innovations and reliable agro-solutions for a sustainable, prosperous future."
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Adarsh <span>AgriScience</span></div>
+                    <p>A pioneering agro-input company committed to transforming Nepalese agriculture through innovation, quality, and farmer-first solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#legacy">Our Legacy</a></li>
+                        <li><a href="#partners">Global Partners</a></li>
+                        <li><a href="#trials">Field Trials</a></li>
+                        <li><a href="#values">Our Values</a></li>
+                        <li><a href="#leadership">Leadership</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p>📍 Birgunj, Nepal</p>
+                    <p>📞 [+977-9807213249,+977-9825200339]</p>
+                    <p>📧 [adarshagriscience@gmail.com]</p>
+
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Adarsh Beej Bhandar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
