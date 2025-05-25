@@ -123,6 +123,140 @@
                 box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             }
 
+        /* Products Section Styling */
+        .products {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .product-tabs {
+            margin-top: 2rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.5rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .tab-btn:hover {
+                background-color: #e0e0e0;
+            }
+
+            .tab-btn.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        .tab-pane {
+            display: none;
+        }
+
+            .tab-pane.active {
+                display: block;
+                animation: fadeIn 0.5s ease;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .product-display {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+            .product-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+            .product-info h3 {
+                margin-bottom: 1rem;
+                color: #333;
+            }
+
+            .product-info p {
+                margin-bottom: 1rem;
+                line-height: 1.6;
+            }
+
+            .product-info ul {
+                margin-bottom: 1.5rem;
+                padding-left: 1.2rem;
+            }
+
+            .product-info li {
+                margin-bottom: 0.5rem;
+            }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #388E3C;
+            }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .product-display {
+                flex-direction: column;
+            }
+
+            .tab-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                margin: 0.25rem 0;
+                width: 80%;
+            }
+        }
+
         section {
             padding: var(--spacing) 0;
         }
@@ -310,11 +444,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            height: min-content;
         }
 
         .team-member {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
@@ -326,7 +461,7 @@
             }
 
         .member-img {
-            height: 250px;
+            height: 650px;
             background-size: cover;
             background-position: center;
         }
@@ -436,6 +571,109 @@
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
+        /*gallerymodal*/
+        /* Image Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+            .gallery-modal.active {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+        .gallery-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .gallery-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+        }
+
+        .close-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+            .close-btn:hover {
+                background: #c82333;
+                transform: scale(1.1);
+            }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .image-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .image-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            }
+
+            .image-item img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+            }
+
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1rem 0.5rem 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
 
         @media (max-width: 768px) {
             nav {
@@ -461,7 +699,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="image/agrilogo.jpeg" alt="Adarsh Beej Bhandar Logo">
+                    <img src="image/nobglogo.jpeg" alt="Adarsh Beej Bhandar Logo">
                     <h1>Adarsh <span>AgriScience</span></h1>
                 </div>
                 <nav>
@@ -541,7 +779,7 @@
                     <img src="image/indigo.jpg" alt="Grow Indigo">
                 </div>
                 <div class="partner-logo">
-                    <img src="/api/placeholder/180/60" alt="SML">
+                    <img src="image/sml.jpeg" alt="SML">
                 </div>
             </div>
             <div class="card" style="margin-top: 2rem;">
@@ -633,6 +871,237 @@
         </div>
     </section>
 
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Products You Can Rely On</h2>
+            <p class="section-intro">Explore our range of high-quality agricultural solutions:</p>
+
+            <div class="product-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-target="insecticide">Insecticide</button>
+                    <button class="tab-btn" data-target="fungicide">Fungicide</button>
+                    <button class="tab-btn" data-target="herbicide">Herbicide</button>
+                    <button class="tab-btn" data-target="PlantGrowthRegulator">Plant Growth Regulator</button>
+                </div>
+
+                <div class="tab-content">
+                    <div id="insecticide" class="tab-pane active">
+                        <div class="product-display">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500&h=300&fit=crop" alt="Insecticide Products">
+                            </div>
+                            <div class="product-info">
+                                <h3>Insecticide Solutions</h3>
+                                <p>Our premium insecticides provide effective protection against a wide range of crop-damaging insects while being safe for beneficial organisms.</p>
+                                <ul>
+                                    <li>Long-lasting protection</li>
+                                    <li>Environmentally responsible formulations</li>
+                                    <li>Targeted pest control</li>
+                                </ul>
+                                <a href="#" class="btn" data-category="insecticide">View Products</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="fungicide" class="tab-pane">
+                        <div class="product-display">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=500&h=300&fit=crop" alt="Fungicide Products">
+                            </div>
+                            <div class="product-info">
+                                <h3>Fungicide Solutions</h3>
+                                <p>Our fungicides combat plant diseases effectively, ensuring healthy crop development and maximum yield potential.</p>
+                                <ul>
+                                    <li>Preventative and curative action</li>
+                                    <li>Broad spectrum disease control</li>
+                                    <li>Rainfast formulations</li>
+                                </ul>
+                                <a href="#" class="btn" data-category="fungicide">View Products</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="PlantGrowthRegulator" class="tab-pane">
+                        <div class="product-display">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&h=300&fit=crop" alt="Plant Growth Regulator">
+                            </div>
+                            <div class="product-info">
+                                <h3>Plant Growth Regulator</h3>
+                                <p>Plant growth regulators are powerful tools in agriculture and horticulture, allowing for precise manipulation of plant development to optimize growth, yield, and quality.</p>
+                                <ul>
+                                    <li>Growth optimization control</li>
+                                    <li>Yield enhancement capabilities</li>
+                                    <li>Stress resistance improvement</li>
+                                </ul>
+                                <a href="#" class="btn" data-category="growth-regulator">View Products</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="herbicide" class="tab-pane">
+                        <div class="product-display">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=500&h=300&fit=crop" alt="Herbicide Products">
+                            </div>
+                            <div class="product-info">
+                                <h3>Herbicide Solutions</h3>
+                                <p>Our selective herbicides effectively eliminate unwanted weeds while keeping your valuable crops safe and thriving.</p>
+                                <ul>
+                                    <li>Pre and post-emergence options</li>
+                                    <li>Selective weed control</li>
+                                    <li>Long-lasting soil activity</li>
+                                </ul>
+                                <a href="#" class="btn" data-category="herbicide">View Products</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="galleryModal" class="gallery-modal">
+        <div class="gallery-content">
+            <div class="gallery-header">
+                <h3 id="galleryTitle" class="gallery-title">Product Gallery</h3>
+                <button class="close-btn" id="closeGallery">&times;</button>
+            </div>
+            <div id="imageGrid" class="image-grid">
+                <!-- Images will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+    <script>
+        const productImages = {
+            insecticide: [
+                { src: 'image/albaug8.jpeg', name: 'Bosforus Gold' },
+                { src: 'image/albaug9.jpeg', name: 'Talante' },
+                { src: 'image/adama5.jpeg', name: 'Barazide' },
+                { src: 'image/adama4.jpeg', name: 'Barroz' },
+                { src: 'image/adama3.jpeg', name: 'Agas' },
+            ],
+            fungicide: [
+                 { src: 'image/adama1.jpeg', name: 'Custodia' },
+                { src: 'image/adama2.jpeg', name: 'Mirador' },
+                { src: 'image/albaug1.jpeg', name: 'Gamely' },
+                { src: 'image/albaug2.jpeg', name: 'Morfus' },
+                { src: 'image/albaug3.jpeg', name: 'Milor Mz' },
+                { src: 'image/albaug4.jpeg', name: 'Mucura' },
+                { src: 'image/albaug6.jpeg', name: 'Rotazeb' },
+                { src: 'image/albaug7.jpeg', name: 'Toledo s' },
+            ],
+            herbicide: [
+
+                { src: 'image/albaug10.jpeg', name: 'Circinus' },
+                { src: 'image/albaug11.jpeg', name: 'Nishudhak ultra' },
+                { src: 'image/albaug12.jpeg', name: 'Nishudak' },
+                { src: 'image/albaugh13.jpeg', name: 'Shasho' },
+            ],
+            'growth-regulator': [
+               { src: 'image/grow1.jpeg', name: 'GrowHume' },
+                { src: 'image/grow2.jpeg', name: 'GrowPhos' },
+                { src: 'image/grow3.jpeg', name: 'Gullack Zn' },
+                { src: 'image/grow4.jpeg', name: 'Gullack B' },
+                { src: 'image/grow5.jpeg', name: 'OOrjit' },
+                { src: 'image/grow6.jpeg', name: 'Prerak' },
+                 { src: 'image/grow7.jpeg', name: 'Oorjit Granuels' },
+                  { src: 'image/grow8.jpeg', name: 'Growwrrihaze' }
+            ]
+        };
+
+        // Tab switching functionality
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Remove active class from all buttons and panes
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Show corresponding tab pane
+                const target = this.getAttribute('data-target');
+                const targetPane = document.getElementById(target);
+                if (targetPane) {
+                    targetPane.classList.add('active');
+                }
+
+                console.log('Switched to tab:', target); // Debug log
+            });
+        });
+
+         const modal = document.getElementById('galleryModal');
+        const closeBtn = document.getElementById('closeGallery');
+        const galleryTitle = document.getElementById('galleryTitle');
+        const imageGrid = document.getElementById('imageGrid');
+
+        // View Products button functionality
+        document.querySelectorAll('.btn[data-category]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const category = this.getAttribute('data-category');
+                showGallery(category);
+            });
+        });
+
+        function showGallery(category) {
+            const images = productImages[category] || [];
+            const categoryNames = {
+                'insecticide': 'Insecticide Products',
+                'fungicide': 'Fungicide Products',
+                'herbicide': 'Herbicide Products',
+                'growth-regulator': 'Plant Growth Regulator Products'
+            };
+
+            galleryTitle.textContent = categoryNames[category] || 'Products';
+
+            // Clear existing images
+            imageGrid.innerHTML = '';
+
+            // Add images to grid
+            images.forEach(image => {
+                const imageItem = document.createElement('div');
+                imageItem.className = 'image-item';
+                imageItem.innerHTML = `
+                    <img src="${image.src}" alt="${image.name}" loading="lazy">
+                    <div class="image-label">${image.name}</div>
+                `;
+                imageGrid.appendChild(imageItem);
+            });
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal functionality
+        closeBtn.addEventListener('click', closeGallery);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeGallery();
+            }
+        });
+
+        function closeGallery() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Escape key to close modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeGallery();
+            }
+        });
+
+
+
+
+    </script>
+
+
     <section id="leadership" class="leadership">
         <div class="container">
             <h2 class="section-title">💼 Leadership</h2>
@@ -645,27 +1114,27 @@
                         <p>Overseas Managing Director</p>
                     </div>
                 </div>
-                <div class="team-member">
+                <!-- <div class="team-member">
                     <div class="member-img" style="background-image: url('/api/placeholder/300/300');"></div>
                     <div class="member-info">
                         <h3>Prince Kumar Chaurasiya</h3>
                         <p>Domestic Managing Director</p>
                     </div>
-                </div>
+                </div> -->
                 <div class="team-member">
-                    <div class="member-img" style="background-image: url('image/imgpramod.jpeg"></div>
+                    <div class="member-img" style="background-image: url('image/imgpramod.jpeg')"></div>
                     <div class="member-info">
                         <h3>Pramod Kumar Chaurasiya</h3>
                         <p>Chief Executive Officer</p>
                     </div>
                 </div>
-                <div class="team-member">
+                <!-- <div class="team-member">
                     <div class="member-img" style="background-image: url('/api/placeholder/300/300');"></div>
                     <div class="member-info">
                         <h3>Kalpana Devi Chaurasiya</h3>
                         <p>Chairperson</p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="card" style="margin-top: 2rem;">
                 <p>We blend global insight with local dedication to drive growth in agriculture.</p>
